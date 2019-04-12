@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+
+
+<AnchorPane  xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="1000" prefWidth="1200" fx:controller="GUI.FXMLDocumentController">
+    <children>
+ 
+        <Label layoutX="5" layoutY="5" text="Выберите файл *.wav "/>
+        <Button layoutX="190" layoutY="5" text="Оpen" onAction="#open" fx:id="button_select"/>
+        <Button fx:id="buttonClose" layoutX="250" layoutY="5"  text="Close" maxWidth="110" onAction="#clickClose" />
+        <Button layoutX="10" layoutY="30" text="Play"  onAction="#play" fx:id="button_play" />
+  
+        <Button layoutX="60" layoutY="30" text="Pause"  onAction="#pause" fx:id="button_pause" />
+        <Button layoutX="122" layoutY="30" text="Reset" onAction="#stop" fx:id="button_stop" />
+        <Label layoutX="190" layoutY="34" text="Громкость: "/>
+        <Slider fx:id="soundSlider" 
+                       layoutX="270" layoutY="36"   max="1.3" min="0" orientation="HORIZONTAL"  value="0.65" rotate="0">
+                </Slider>
+                
+        <Label layoutX="5" layoutY="70" text="Выберите эффект"/>   
+        <CheckBox text="Reverbration" layoutX="50" layoutY="100" onAction="#chorusBox" />
+        <CheckBox text="Envelope" layoutX="190" layoutY="100" onAction="#distBox" />
+
+        <CheckBox fx:id="buttonPlot" layoutX="400" layoutY="100"  text="Plot" maxWidth="110"
+                  onAction="#clickPlot" >
+        </CheckBox>
+
+        <Label layoutX="420" layoutY="0"  text="Выберите коэффициенты усиления полос: "/>
+        <HBox layoutX="420" layoutY="30" prefWidth="600" prefHeight="20">
+            <children>
+                <Label text="0-50 Hz" prefWidth="200"/>
+                <Label text="50-100 Hz" prefWidth="200"/>
+                <Label text="100-200 Hz" prefWidth="200"/>
+                <Label text="200-400 Hz" prefWidth="200"/>
+                <Label text="400-800 Hz" prefWidth="200"/>
+                <Label text="800-1600 Hz" prefWidth="200"/>
+                <Label text="1.6-3.2 kHz" prefWidth="200"/>
+                <Label text="3.2-6.4 kHz" prefWidth="200"/>
+                <Label text="6.4-12.8 kHz" prefWidth="200"/>
+                <Label text="> 12.8 kHz" prefWidth="200"/>
+            </children>
+        </HBox>
+        <HBox layoutX="420" layoutY="40" prefWidth="600"  prefHeight="150" >
+            <children>
+                <Slider fx:id="Slider0" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider1" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider2" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider3" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider4" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider5" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider6" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider7" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider8" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+                <Slider fx:id="Slider9" orientation="VERTICAL" min="0.001" max="1" prefWidth="90"/>
+            </children>
+        </HBox>
+        <HBox layoutX="420" layoutY="190" prefWidth="600" prefHeight="50">
+            <children>
+                <Label fx:id="Label0" prefWidth="90"/>
+                <Label fx:id="Label1" prefWidth="90"/>
+                <Label fx:id="Label2" prefWidth="90"/>
+                <Label fx:id="Label3" prefWidth="90"/>
+                <Label fx:id="Label4" prefWidth="90"/>
+                <Label fx:id="Label5" prefWidth="90"/>
+                <Label fx:id="Label6" prefWidth="90"/>
+                <Label fx:id="Label7" prefWidth="90"/>
+                <Label fx:id="Label8" prefWidth="90"/>
+                <Label fx:id="Label9" prefWidth="90"/>
+            </children>
+        
+        </HBox>
+
+
+        <LineChart fx:id="chart1" layoutX="100" layoutY="340" title="До изменения" titleSide="TOP" legendVisible="false" >
+            <xAxis><NumberAxis label="Bands" lowerBound="0" upperBound="3" tickUnit="1" fx:id="xAxis1"/></xAxis>
+            <yAxis><NumberAxis label="Magnitude" lowerBound="0" upperBound="3" tickUnit="1" fx:id="yAxis1"/></yAxis>
+            
+        </LineChart>
+        <LineChart fx:id="chart2" layoutX="600" layoutY="340" title="После изменения" titleSide="TOP" legendVisible="false">
+            <xAxis><NumberAxis label="Bands" lowerBound="0" upperBound="3" tickUnit="1" fx:id="xAxis2"/></xAxis>
+            <yAxis><NumberAxis label="Magnitude" lowerBound="0" upperBound="3" tickUnit="1" fx:id="yAxis2"/></yAxis>
+        </LineChart>
+      
+    </children>
+</AnchorPane>
